@@ -1,10 +1,9 @@
 "use strict";
 const mongodb = require('mongodb-bluebird'),
-	assert = require('assert'),
-	ObjectID = require('mongodb').ObjectID,
+	config = require('../server/configuration'),
 	jsonfile = require('jsonfile');
 
-const url = 'mongodb://localhost:27017/reach';
+const url = config.MONGODB_URI;
 
 const addOrUpdate = (boulders,boulder,existing) => {
 	if (existing) {
@@ -28,7 +27,7 @@ const processBoulders = (db,file,callback) => {
 
 		db.collection('area').findOne({name: areaName})
 			.then((area) => {
-				return db.collection('place').findOne({name: placeName, area: new ObjectID(area._id)});
+				return db.collection('place').findOne({name: placeName, area: area._id});
 			})
 			.then((place) => {
 				return 	db.collection('sector').findOne({name: sectorName, place: place._id});

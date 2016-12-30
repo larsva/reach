@@ -1,9 +1,9 @@
 "use strict";
 const mongodb = require('mongodb-bluebird'),
-  assert = require('assert'),
+  config = require('../server/configuration'),
   jsonfile = require('jsonfile');
 
-const url = 'mongodb://localhost:27017/reach';
+const url = config.MONGODB_URI;
 
 const addOrUpdate = (places,place, place_id, area_id) => {
   place['area'] = area_id;

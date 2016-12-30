@@ -1,0 +1,21 @@
+{
+  "area": {
+    "name":"Bohuslän",
+    "place": {
+      "name": "Välseröd",
+      "sectors": [
+        {
+          "name": "Utsikten",
+          "description": "Från Utsikten ser du havet! Sektorn är inte så barnvänlig då det är nära till höga och branta stup,",
+          "type": "Listklättring på granit",
+          "height": "Från 2 till 7 meter",
+          "conditions": "Öppet och luftigt, torkar fort",
+          "aspect": "Sydväst. Sol från 13.00",
+          "steepness": "Sva till svagt överhängande",
+          "approach": "Utsikten ligger ca 1 km från Välseröds parkering. Bra skogsstig hela vägen.",
+          "parkingInfo": "Som för Välseröd. Parkering i två parkeringsfickor längs vägen med plats för ca 10 bilar. Populärt område - kan vara fullt på helgerna."
+        }
+      ]
+    }
+  }
+}

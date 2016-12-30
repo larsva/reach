@@ -1,0 +1,52 @@
+{
+  "area": {
+    "name": "Bohuslän",
+    "place": {
+      "name": "Välseröd",
+      "sector": {
+        "name": "Utsikten",
+        "boulders": [
+          {
+            "name": "Brun bönne",
+            "sitDown": false,
+            "grade": "4c",
+            "morpho": false,
+            "steepness": "Vertikal",
+            "landing": "Platt",
+            "highball": false,
+            "fa": "Tina Jörgensen",
+            "faDate": "2016-06",
+            "stars": 1,
+            "beta": "Beta här"
+          },
+          {
+            "name": "Röd skalk",
+            "sitDown": true,
+            "grade": "4c",
+            "morpho": false,
+            "steepness": "85 grader",
+            "landing": "Platt",
+            "highball": false,
+            "fa": "Tina Jörgensen",
+            "faDate": "2016-06",
+            "stars": 1,
+            "beta": "Beta här"
+          },
+          {
+            "name": "Gul genser",
+            "sitDown": false,
+            "grade": "4a",
+            "morpho": false,
+            "steepness": "85 grader",
+            "landing": "Platt",
+            "highball": false,
+            "fa": "Tina Jörgensen",
+            "faDate": "2016-06",
+            "stars": 1,
+            "beta": "Beta här"
+          }
+        ]
+      }
+    }
+  }
+}

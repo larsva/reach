@@ -8,10 +8,11 @@ exports. handleError = (res, reason, message, code) => {
   res.status(code || 500).json({"error": message});
 };
 
-exports.getBaseUrl = (req) => {
+exports.buildUrl = (req, path) => {
   return url.format({
     protocol: req.protocol,
-    hostname: req.hostname
+    host: req.get('host'),
+    pathname: path
   });
 };
 

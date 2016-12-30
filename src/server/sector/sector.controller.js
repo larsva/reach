@@ -8,7 +8,7 @@ const addBoulderRefs = (req, sector, boulders) => {
   let boulderRefs = boulders.map((boulder) => {
     return {
       name: boulder.name,
-      url: Utils.getBaseUrl(req) + ':' + config.port + '/reach/boulder/id/' + boulder._id
+      url: Utils.buildUrl(req,'/reach/boulder/id/' + boulder._id)
     }
   });
   sector['boulders'] = boulderRefs;

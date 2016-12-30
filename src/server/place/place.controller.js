@@ -7,7 +7,7 @@ const Utils = require('../utils');
 
 const addSectorRefs = (req, place, sectors) => {
   let sectorRefs = sectors.map((sector) => {
-    return {name: sector.name, url: Utils.getBaseUrl(req) + ':' + config.port + '/reach/sector/id/' + sector._id}
+    return {name: sector.name, url: Utils.buildUrl(req,'/reach/sector/id/' + sector._id)};
   });
   place['sectors'] = sectorRefs;
   return place;

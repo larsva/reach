@@ -10,7 +10,7 @@
   app.use(express.static(__dirname + "/public"));
   app.use(bodyParser.json());
 
-  console.log('MONGODB_URI' + config.MONGODB_URI);
+  console.log('MONGODB_URI: ' + config.MONGODB_URI);
 
   mongodb.connect(config.MONGODB_URI)
     .then((database) => {
@@ -31,7 +31,6 @@
     .catch((err) => {
       console.log(err);
       process.exit(1);
-
     })
 })
 (require('express')());

@@ -13,7 +13,8 @@
           "aspect": "Sydväst. Sol från 13.00",
           "steepness": "Sva till svagt överhängande",
           "approach": "Utsikten ligger ca 1 km från Välseröds parkering. Bra skogsstig hela vägen.",
-          "parkingInfo": "Som för Välseröd. Parkering i två parkeringsfickor längs vägen med plats för ca 10 bilar. Populärt område - kan vara fullt på helgerna."
+          "parkingInfo": "Som för Välseröd. Parkering i två parkeringsfickor längs vägen med plats för ca 10 bilar. Populärt område - kan vara fullt på helgerna.",
+          "geoLocation": {"latitude": "58.482813", "longitude": "11.4564229"}
         }
       ]
     }

@@ -5,9 +5,9 @@
   const mongodb = require('mongodb-bluebird');
   const config = require('./configuration');
 
-  const apiPrefix = '/reach';
+  const apiPrefix = config.apiPrefix;
 
-  app.use(express.static(__dirname + "/public"));
+  app.use(express.static(__dirname + "/static"));
   app.use(bodyParser.json());
 
   console.log('MONGODB_URI: ' + config.MONGODB_URI);

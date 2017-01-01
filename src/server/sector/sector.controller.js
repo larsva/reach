@@ -1,7 +1,5 @@
 "use strict";
 
-const ObjectID = require('mongodb').ObjectID;
-const config = require('../configuration');
 const Utils = require('../utils');
 
 const addBoulderRefs = (req, sector, boulders) => {
@@ -17,9 +15,9 @@ const addBoulderRefs = (req, sector, boulders) => {
 
 exports.getSector = (req,res) => {
   const db = req.db;
-  db.collection('sector').findOne({_id: new ObjectID(req.params.id)})
+  db.collection('sector').findOne({_id: req.params.id})
     .then((sector) => {
-      db.collection('boulder').find({sector: new ObjectID(sector._id)})
+      db.collection('boulder').find({sector: sector._id})
         .then((boulders) => {
           res.status(200).json(addBoulderRefs(req, sector, boulders));
         })

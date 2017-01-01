@@ -25,12 +25,14 @@ exports.getAreas = (req,res) => {
 }
 
 exports.getArea = (req,res) => {
+  let area;
    req.db.collection('area').findOne({name: req.params.name})
-    .then((area) => {
-      req.db.collection('place').find({area: area._id})
-        .then((places) => {
-          res.status(200).json(addPlaceRefs(req, area, places));
-        });
+    .then((a) => {
+      area = a;
+      return req.db.collection('place').find({area: area._id});
     })
-    .catch((err) => Utils.handleError(res, err.message, "Failed to get area"));
+    .then((places) => {
+       res.status(200).json(addPlaceRefs(req, area, places));
+     })
+  .catch((err) => Utils.handleError(res, err.message, "Failed to get area"));
 }

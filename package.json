@@ -7,7 +7,10 @@
     "test": "test",
     "start": "node src/server/server.js",
     "heroku": "MONGODB_URI=mongodb://heroku_c5sddtg0:4at9qoblvf1rnmdqvfm69j3utp@ds149268.mlab.com:49268/heroku_c5sddtg0 node src/server/server.js",
-    "debug": "node --inspect src/server/server.js"
+    "debug": "node --inspect src/server/server.js",
+    "add-area": "MONGODB_URI=mongodb://heroku_c5sddtg0:4at9qoblvf1rnmdqvfm69j3utp@ds149268.mlab.com:49268/heroku_c5sddtg0 node src/scripts/add_area.js",
+    "add-place": "MONGODB_URI=mongodb://heroku_c5sddtg0:4at9qoblvf1rnmdqvfm69j3utp@ds149268.mlab.com:49268/heroku_c5sddtg0 node src/scripts/add_place.js",
+    "add-sectors": "MONGODB_URI=mongodb://heroku_c5sddtg0:4at9qoblvf1rnmdqvfm69j3utp@ds149268.mlab.com:49268/heroku_c5sddtg0 node src/scripts/add_sectors.js"
   },
   "author": "",
   "license": "ISC",

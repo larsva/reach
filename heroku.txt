@@ -1,5 +1,17 @@
+# Credentials
 user: lasse.svadangs@gmail.com
 password: Br0der Ludde
+
+# mongodb
 MONGOBD_URI:mongodb://heroku_c5sddtg0:4at9qoblvf1rnmdqvfm69j3utp@ds149268.mlab.com:49268/heroku_c5sddtg0
 mongodb: https://addons-sso.heroku.com/apps/0eda1d45-9310-4b62-ba9d-e35d8d068ae4/addons/9451d218-7eea-4e18-84dc-c92f94cfa987
+
+# REST-url
 url: https://gryttr.herokuapp.com/reach/area/Bohusl%C3%A4n
+
+# Commands
+heroku login
+heroku addons:open mongolab
+
+# Push to heroku
+git push heroku master

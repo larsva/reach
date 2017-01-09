@@ -29,3 +29,20 @@ nav a.active {
 #top-nav {
   padding-top: 10px;
 }
+.bannerHolder {
+  position: relative;
+}
+.bannerHolder .name {
+  position: absolute;
+  left: 100px;
+  top: 100px;
+  color: white;
+  font-size:2.5em;
+}
+.bannerHolder .problems {
+  position: absolute;
+  left: 100px;
+  top: 140px;
+  color: white;
+  font-size:1.5em;
+}

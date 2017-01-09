@@ -24,18 +24,23 @@ const processBoulders = (db,file,callback) => {
 		console.log('================================================');
 		console.log('Updating/adding boulders for ' + areaName + ':' + placeName + ':' + sectorName);
 		console.log('================================================');
-
+		let area;
+		let place;
 		db.collection('area').findOne({name: areaName})
-			.then((area) => {
+			.then((a) => {
+				area = a;
 				return db.collection('place').findOne({name: placeName, area: area._id});
 			})
-			.then((place) => {
+			.then((p) => {
+				place = p;
 				return 	db.collection('sector').findOne({name: sectorName, place: place._id});
 			})
 			.then((sector) => {
 				return Promise.all(obj.area.place.sector.boulders.map((boulder) => {
 					return boulders.findOne({name: boulder.name, sector: sector._id})
 						.then((eb) => {
+							boulder['area'] = area._id;
+							boulder['place'] = place._id;
 							boulder['sector'] = sector._id;
 							addOrUpdate(boulders,boulder,eb);
 						})

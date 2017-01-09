@@ -1,0 +1,10 @@
+<div class="container" >
+
+    <div *ngFor="let area of areas" class="row col-xs-12, col-md-8,col-lg-8">
+        <div class="bannerHolder" (click)="onSelectArea(area)">
+            <img [src]="'images/' + area.bannerImage" />
+            <p class="name">{{area.name}}</p>
+            <p class="problems">{{area.problems}} problem</p>
+        </div>
+    </div>
+</div>

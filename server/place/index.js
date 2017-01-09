@@ -6,6 +6,6 @@ const router = express.Router();
 
 //Endpoints
 
-router.get('/id/:id', controller.getPlace);
+router.get('/:id', controller.getPlace);
 
 module.exports = router;

@@ -3,8 +3,8 @@
 
 const url = require('url');
 
-exports. handleError = (res, reason, message, code) => {
-  console.log("ERROR: " + message + " Reason: " + reason);
+exports. handleError = (res, err, message, code) => {
+  console.log("ERROR: " + message + " " +JSON.stringify(err));
   res.status(code || 500).json({"error": message});
 };
 

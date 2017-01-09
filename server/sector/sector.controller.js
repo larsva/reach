@@ -6,7 +6,9 @@ const addBoulderRefs = (req, sector, boulders) => {
   let boulderRefs = boulders.map((boulder) => {
     return {
       name: boulder.name,
-      url: Utils.buildUrl(req,'/reach/boulder/id/' + boulder._id)
+      id: boulder._id,
+      grade: boulder.grade,
+      stars: boulder.stars
     }
   });
   sector['boulders'] = boulderRefs;
@@ -22,5 +24,5 @@ exports.getSector = (req,res) => {
           res.status(200).json(addBoulderRefs(req, sector, boulders));
         })
     })
-    .catch((err) => Utils.handleError(res, err.message, "Failed to get sector"));
+    .catch((err) => Utils.handleError(res, err, "Failed to get sector"));
 }

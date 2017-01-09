@@ -6,7 +6,7 @@ const router = express.Router();
 
 //Endpoints
 
-router.get('/', controller.getAreas);
-router.get('/:name', controller.getArea);
+router.get('/', controller.getAllAreas);
+router.get('/:id', controller.getAreaById);
 
 module.exports = router;

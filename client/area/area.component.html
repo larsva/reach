@@ -1,0 +1,19 @@
+<div class="container">
+    <div class="row col-xs-12, col-md-8,col-lg-8 section">
+        <div class="title">{{area.name | uppercase}}</div>
+    </div>
+    <div class="row col-xs-12, col-md-8,col-lg-8 section">
+        <div class="g-problems">{{area.problems}}</div>
+        <div><span>problem</span></div>
+    </div>
+    <div class="row col-xs-12, col-md-8,col-lg-8 section">
+        <div><span class="title">Områden</span></div>
+        <div *ngFor="let place of area.places" (click)="onSelectPlace(place)">
+           {{place.problems}}&nbsp; {{place.name}}
+         </div>
+    </div>
+    <div class="row col-xs-12, col-md-8,col-lg-8 section">
+        <div class="title">MILJÖ</div>
+        <div>{{area.description}}</div>
+    </div>
+</div>

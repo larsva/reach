@@ -1,0 +1,14 @@
+.section {
+  padding: 4px;
+  border-bottom: 5px solid #CCCCCC;
+}
+
+div.section>div.title {
+  font-size:1.5em;
+}
+div.section>div>span.title {
+  font-size:1.5em;
+}
+div.section>div.problems {
+  font-size:2.0em;
+}

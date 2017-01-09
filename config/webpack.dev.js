@@ -21,11 +21,19 @@ module.exports = webpackMerge(commonConfig, {
         historyApiFallback: true,
         stats: 'minimal',
         proxy: {
-            '/api': {
+            '/reach': {
+                target: 'http://localhost:3000',
+                secure: false
+            },
+            '/images': {
                 target: 'http://localhost:3000',
                 secure: false
             },
             '/bootstrap.min.css': {
+                target: 'http://localhost:3000',
+                secure: false
+            },
+            '/app.css': {
                 target: 'http://localhost:3000',
                 secure: false
             }

@@ -6,11 +6,6 @@ exports.root = function (args) {
   return path.join.apply(path, [_root].concat(args));
 }
 
-exports.fromSrc = function () {
-  const pathArr = [].slice.call(arguments, 0);
-  return path.resolve.apply(path, [_root].concat('src', pathArr));
-};
-
 exports.fromModules = function () {
   const pathArr = [].slice.call(arguments, 0);
   return path.resolve.apply(path, [_root].concat('node_modules', pathArr));

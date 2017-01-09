@@ -1,0 +1,22 @@
+<div class="container">
+    <div class="row col-xs-12, col-md-8,col-lg-8 section">
+        <div class="title">{{place.name | uppercase}}</div>
+    </div>
+    <div class="row col-xs-12, col-md-8,col-l8 section">
+        <div class="problems">{{place.problems}}</div>
+        <div>problem</div>
+    </div>
+    <div class="row col-xs-12, col-md-8,col-lg-8 section">
+        <div>{{place.parkingInfo}}</div>
+    </div>
+    <div class="row col-xs-12, col-md-8,col-lg-8 section">
+        <div class="title">SEKTORER PÅ {{place.name | uppercase}}</div>
+        <div *ngFor="let sector of place.sectors" (click)="onSelectPlace(sector)">
+            <span>{{sector.problems}}&nbsp;</span><span>{{sector.name}}</span>
+        </div>
+    </div>
+    <div class="row col-xs-12, col-md-8,col-lg-8 section">
+        <div class="title">MILJÖ</div>
+        <div>{{place.description}}</div>
+    </div>
+</div>

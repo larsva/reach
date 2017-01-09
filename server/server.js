@@ -27,6 +27,10 @@
       app.use(apiPrefix + '/sector', require('./sector'));
       app.use(apiPrefix + '/boulder', require('./boulder'));
 
+      app.get('/*', (req, res) => {
+        res.render('../dist/index.html');
+      });
+
       app.listen(config.port, () => {
         console.log("App now running on port", config.port);
       });

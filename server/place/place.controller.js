@@ -1,18 +1,46 @@
 "use strict";
-
+const fs = require('fs');
 const Utils = require('../utils');
-const apiPrefix = require('../configuration').apiPrefix;
+const ObjectID = require('mongodb').ObjectID;
+const path = require("path");
 
 const addSectorRefs = (req, place, sectorInfo) => {
   let sectorRefs = sectorInfo.map((info) => {
     return {
       name: info.sector.name,
-      boulders: info.boulders.count,
-      url: Utils.buildUrl(req, apiPrefix + '/sector/id/' + info.sector._id)
+      problems: info.boulders.count,
+      id: info.sector._id,
+      geoLocation: info.sector.geoLocation
     };
   });
   place['sectors'] = sectorRefs;
+  let problems = sectorRefs.reduce((prev, sector) => prev + sector.problems, 0);
+  place['problems'] = problems;
   return place;
+};
+
+const normalize = (str) => {
+  return str.toLowerCase()
+    .replace('å','a')
+    .replace('ä','a')
+    .replace('ö','o');
+};
+
+const findImages = (area, place)=> {
+  console.log('Area: ', area.name);
+  console.log('Place: ', place.name);
+  let images = [];
+  const dir = path.join(__dirname, '../static/images/bohuslan/' + normalize(place.name));
+  fs.readdir(dir, (err, files) => {
+    if (err) {
+      console.log(JSON.stringify(err));
+    } else {
+      files.forEach(file => {
+        console.log(file);
+      });
+    }
+  })
+  return images;
 };
 
 exports.getPlace = (req, res) => {
@@ -21,11 +49,22 @@ exports.getPlace = (req, res) => {
   db.collection('place').findOne({_id: req.params.id})
     .then((p) => {
       place = p;
+      console.log('Place: ', JSON.stringify(place));
+      return db.collection('area').find({_id: new ObjectID(place.area)})
+        .then((area) => {
+          let images = findImages(area, place);
+          place['images'] = images;
+          return new Promise((resolve, reject) => {
+            resolve(place);
+          })
+        })
+    })
+    .then((place) => {
       console.log('Place: ' + JSON.stringify(place));
       if (place) {
         return db.collection('sector').find({place: place._id});
       } else {
-        Utils.handleError(res, "Unable to find place with id '" + req.params.id + "'", "Failed to get place")
+        Utils.handleError(res, {message: "Unable to find place with id '" + req.params.id + "'"}, "Failed to get place")
       }
     })
     .then((sectors) => {
@@ -33,7 +72,7 @@ exports.getPlace = (req, res) => {
         return Promise.all(sectors.map((sector) => {
           return db.collection('boulder').count({sector: sector._id})
             .then((count) => {
-              return {sector: sector, boulders:{ count: count}};
+              return {sector: sector, boulders: {count: count}};
             })
         }));
       } else {
@@ -42,9 +81,8 @@ exports.getPlace = (req, res) => {
         res.status(200).json(place);
       }
     })
-    .then((r) => {
-      console.log('Result: ' + JSON.stringify(r));
-      res.status(200).json(addSectorRefs(req, place, r));
+    .then((sectorInfo) => {
+      res.status(200).json(addSectorRefs(req, place, sectorInfo));
     })
-    .catch((err) => Utils.handleError(res, err.message, "Failed to get place"));
+   // .catch((err) => Utils.handleError(res, err, "Failed to get place"));
 }

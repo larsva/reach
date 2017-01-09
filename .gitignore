@@ -6,5 +6,8 @@ npm-debug.log*
 # IDEA
 .idea
 
-# NODE_MODULES
+# GRYTTR
 node_modules
+dist
+bu-package.json
+

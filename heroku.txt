@@ -12,6 +12,7 @@ url: https://gryttr.herokuapp.com/reach/area/Bohusl%C3%A4n
 # Commands
 heroku login
 heroku addons:open mongolab
+mongo ds149268.mlab.com:49268/heroku_c5sddtg0 -u heroku_c5sddtg0 -p 4at9qoblvf1rnmdqvfm69j3utp
 
 # Push to heroku
 git push heroku master

@@ -30,13 +30,15 @@ const findImages = (area, place)=> {
   console.log('Area: ', area.name);
   console.log('Place: ', place.name);
   let images = [];
-  const dir = path.join(__dirname, '../static/images/bohuslan/' + normalize(place.name));
-  fs.readdir(dir, (err, files) => {
+  const dir = path.join(__dirname, '/../static/images/' + normalize(area.name) + '/' + normalize(place.name));
+  console.log('Image dir: ' + JSON.stringify(dir));
+  fs.readdir(__dirname + '/../../static/images/' + normalize(area.name) + '/' + normalize(place.name), (err, files) => {
     if (err) {
       console.log(JSON.stringify(err));
     } else {
       files.forEach(file => {
         console.log(file);
+        images.push(normalize(area.name) + '/' + normalize(place.name) + '/' + file);
       });
     }
   })
@@ -49,10 +51,9 @@ exports.getPlace = (req, res) => {
   db.collection('place').findOne({_id: req.params.id})
     .then((p) => {
       place = p;
-      console.log('Place: ', JSON.stringify(place));
-      return db.collection('area').find({_id: new ObjectID(place.area)})
+      return db.collection('area').findOne({"_id": place.area})
         .then((area) => {
-          let images = findImages(area, place);
+           let images = findImages(area, place);
           place['images'] = images;
           return new Promise((resolve, reject) => {
             resolve(place);

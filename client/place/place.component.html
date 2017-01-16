@@ -3,6 +3,11 @@
         <div class="title">{{place.name | uppercase}}</div>
     </div>
     <div class="row col-xs-12, col-md-8,col-l8 section">
+        <div *ngFor="let img of place.images">
+            <img [src]="'images/' + img" style="width:479px; height: auto"/>
+        </div>
+    </div>
+    <div class="row col-xs-12, col-md-8,col-l8 section">
         <div class="problems">{{place.problems}}</div>
         <div>problem</div>
     </div>

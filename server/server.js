@@ -22,6 +22,7 @@
         req.db = database;
         next();
       });
+
       app.use(apiPrefix + '/area', require('./area'));
       app.use(apiPrefix + '/place', require('./place'));
       app.use(apiPrefix + '/sector', require('./sector'));

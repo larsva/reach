@@ -15,7 +15,7 @@
     "build-heroku": "ENV=prod webpack --progress --profile",
     "server": "nodemon ./server/server.js",
     "prestart": "npm run build-heroku",
-    "start": "npm run server",
+    "start": "node ./server/server.js",
     "prestart-dev": "npm run build-prod",
     "start-dev": "npm run server",
     "start-mlab": "MONGODB_URI=mongodb://heroku_c5sddtg0:4at9qoblvf1rnmdqvfm69j3utp@ds149268.mlab.com:49268/heroku_c5sddtg0 npm run server",

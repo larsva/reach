@@ -27,18 +27,13 @@ const normalize = (str) => {
 };
 
 const findImages = (area, place)=> {
-  console.log('Area: ', area.name);
-  console.log('Place: ', place.name);
   let images = [];
-  const dir = path.join(__dirname, '/../static/images/' + normalize(area.name) + '/' + normalize(place.name));
-  console.log('Image dir: ' + JSON.stringify(dir));
   fs.readdir(__dirname + '/../../static/images/' + normalize(area.name) + '/' + normalize(place.name), (err, files) => {
     if (err) {
       console.log(JSON.stringify(err));
     } else {
       files.forEach(file => {
-        console.log(file);
-        images.push(normalize(area.name) + '/' + normalize(place.name) + '/' + file);
+         images.push(normalize(area.name) + '/' + normalize(place.name) + '/' + file);
       });
     }
   })

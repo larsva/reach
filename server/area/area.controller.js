@@ -71,11 +71,6 @@ exports.getAreaById = (req, res) => {
     .then((a) => {
       area = a;
       console.log('Area: ' + JSON.stringify(area));
-      return req.db.collection('boulder').count({area: area._id});
-    })
-    .then((count) => {
-      area['boulders'] = count;
-      console.log('Area: ' + JSON.stringify(area));
       return places.find({area: area._id});
     })
     .then((places) => {

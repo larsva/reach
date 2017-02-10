@@ -4,10 +4,12 @@ import {FormsModule} from "@angular/forms";
 import {AreaService} from "./service/area.service";
 import {AreaResolver} from "./area.resolver";
 import {AreaComponent} from "./area.component";
+import {AgmCoreModule} from "angular2-google-maps/core/core-module";
 @NgModule({
     imports: [
         CommonModule,
-        FormsModule
+        FormsModule,
+        AgmCoreModule
     ],
     declarations: [
         AreaComponent

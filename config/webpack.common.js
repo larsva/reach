@@ -26,7 +26,8 @@ exports = module.exports = function makeWebpackCommon(useChecksum) {
           exclude: [
             // these packages have problems with their sourcemaps
             helpers.fromModules('rxjs'),
-            helpers.fromModules('@angular')
+            helpers.fromModules('@angular'),
+            helpers.fromModules('angular2-google-maps')
           ]
         }
       

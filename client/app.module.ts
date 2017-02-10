@@ -1,4 +1,4 @@
-import {NgModule}      from '@angular/core';
+import {NgModule, CUSTOM_ELEMENTS_SCHEMA}      from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 import {FormsModule} from '@angular/forms';
 import {HttpModule} from '@angular/http';
@@ -6,10 +6,9 @@ import {HttpModule} from '@angular/http';
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent}   from './app.component';
 import {AreaModule} from "./area/area.module";
-import {AreaService} from "./area/service/area.service";
-import {AreaComponent} from "./area/area.component";
 import {HomeModule} from "./home/home.module";
 import {PlaceModule} from "./place/place.module";
+import {AgmCoreModule} from "angular2-google-maps/core";
 
 @NgModule({
     imports: [
@@ -19,11 +18,15 @@ import {PlaceModule} from "./place/place.module";
         HttpModule,
         AreaModule,
         PlaceModule,
-        HomeModule
+        HomeModule,
+        AgmCoreModule.forRoot({
+            apiKey: 'AIzaSyA1YUBLUllbIqTCDCvMIuay_poSeR251Ig'
+        })
     ],
+    schemas:  [ CUSTOM_ELEMENTS_SCHEMA ],
     declarations: [
         AppComponent
-    ],
+     ],
     providers: [],
     bootstrap: [AppComponent]
 })

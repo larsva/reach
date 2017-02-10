@@ -16,3 +16,6 @@ mongo ds149268.mlab.com:49268/heroku_c5sddtg0 -u heroku_c5sddtg0 -p 4at9qoblvf1r
 
 # Push to heroku
 git push heroku master
+
+# Google Maps API KEY
+AIzaSyA1YUBLUllbIqTCDCvMIuay_poSeR251Ig

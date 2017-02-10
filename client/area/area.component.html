@@ -3,8 +3,13 @@
         <div class="title">{{area.name | uppercase}}</div>
     </div>
     <div class="row col-xs-12, col-md-8,col-lg-8 section">
-        <div class="g-problems">{{area.problems}}</div>
+        <div class="problems">{{area.problems}}</div>
         <div><span>problem</span></div>
+    </div>
+    <div class="row col-xs-12, col-md-8,col-lg-8 section">
+        <sebm-google-map [latitude]="latitude" [longitude]="longitude">
+            <sebm-google-map-marker *ngFor="let placeRef of placeRefs();" [latitude]="placeRef.latitude" [longitude]="placeRef.longitude"></sebm-google-map-marker>
+        </sebm-google-map>
     </div>
     <div class="row col-xs-12, col-md-8,col-lg-8 section">
         <div><span class="title">Områden</span></div>

@@ -1,4 +1,4 @@
-# Credentials
+# Credentials heroku
 user: lasse.svadangs@gmail.com
 password: Br0der Ludde
 

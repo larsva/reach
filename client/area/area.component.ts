@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {IArea, IPlaceRef, IGeoLocation, PlaceRef} from "./model/area";
+import {IArea, IGeoLocation, PlaceRef} from "./model/area";
 import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
@@ -10,12 +10,14 @@ import {ActivatedRoute, Router} from "@angular/router";
 
 export class AreaComponent implements OnInit {
     private area: IArea = <IArea>{};
-
+    private placeRefs: PlaceRef[] = [];
     get latitude(): number {
+        console.log('Area latitude: ' + parseFloat(this.location.latitude));
        return parseFloat(this.location.latitude);
     }
 
     get longitude(): number {
+        console.log('Area longitude: ' + parseFloat(this.location.longitude));
         return parseFloat(this.location.longitude);
     }
 
@@ -28,15 +30,11 @@ export class AreaComponent implements OnInit {
 
     ngOnInit():void {
         this.area = this.route.snapshot.data['area'];
+        this.placeRefs = this.area.places.map((p) => new PlaceRef(p));
     }
 
     onSelectPlace(place) {
         this.router.navigate(['/place', place.id]);
     }
-
-
-    placeRefs(): PlaceRef[] {
-        return this.area.places.map((p) => new PlaceRef(p));
-    }
-
+    
 }
